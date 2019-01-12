@@ -52,6 +52,6 @@ print(result)
 result.to_csv("completeData.csv", index=False)
 
 #write all #1 players to a file
-result = result[(result.type == 1)].drop_duplicates(subset='name', keep='first')
+result = result[(result.type == 1)].drop_duplicates(subset=['fName', 'lName'], keep='first')
 result = result[['fName', 'lName', 'country', 'birth']]
 result.to_csv("number1players.csv", index=False)
