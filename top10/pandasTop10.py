@@ -44,6 +44,13 @@ print(plRanks)
 #result = plRanks[['0_x','1_x','2_y','3_x']]
 result = plRanks[['2_y','1_x','3_x', '0_x', '1_y', '2_y', '4_y', 5]]
 result.columns = ['name','type','value','date', 'fName', 'lName', 'birth', 'country']
+
+# S. Williams & V. Williams
+result.loc[(result.fName == 'Serena') & (result.lName == 'Williams'), 'name'] = 'S. Williams'
+result.loc[(result.fName == 'Venus' ) & (result.lName == 'Williams'), 'name'] = 'V. Williams'
+#result.loc[(result.name == 'S. Williams'), 'lName'] = 'S. Williams'
+#result.loc[(result.name == 'V. Williams'), 'lName'] = 'V. Williams'
+
 result.value = pd.to_numeric(result.value)
 print(result.dtypes)
 result = result[(result.value>0)]
